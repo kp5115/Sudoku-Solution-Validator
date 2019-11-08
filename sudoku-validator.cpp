@@ -16,7 +16,6 @@ typedef struct {
 
 int result[27] = {0};
 
-
 void *isRowValid(void* param) {
     int grid[9] = {0};
     parameters *params = (parameters*)param;
