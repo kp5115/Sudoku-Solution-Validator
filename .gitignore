@@ -1,0 +1,13 @@
+# Don't track content of these folders
+
+# Don't track these files
+*.DS_Store
+*.exe
+*.7z
+*.zip
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
