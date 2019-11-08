@@ -1,6 +1,8 @@
 //
 //  sudoku-validator.cpp
 //  Sudoku-Solution-Validator
+//  Created By: Ronak Shah & Karan Patel
+//  180-C - Group 32
 //
 
 #include <pthread.h>
@@ -13,6 +15,7 @@ typedef struct {
 } parameters;
 
 int result[27] = {0};
+
 
 void *isRowValid(void* param) {
     int grid[9] = {0};

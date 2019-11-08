@@ -1,6 +1,8 @@
 //
 //  main.cpp
 //  Sudoku-Solution-Validator
+//  Created By: Ronak Shah & Karan Patel
+//  180-C - Group 32
 //
 
 #include <iostream>
