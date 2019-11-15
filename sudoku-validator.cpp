@@ -82,18 +82,12 @@ bool validateSudokuSolution(int (*sudoku)[9]) {
             data->row = i;
             data->column = j;
             data->sudoku = sudoku;
-            if (i%3 == 0 && j%3 == 0) {
-                if (!validateGrid(data))
-                    return false;
-            }
-            if (j == 0) {
-                if (!validateRow(data))
-                    return false;
-            }
-            if (i == 0) {
-                if (!validateColumn(data))
-                    return false;
-            }
+            if (i%3 == 0 && j%3 == 0 && !validateGrid(data))
+                return false;
+            if (j == 0 && !validateRow(data))
+                return false;
+            if (i == 0 && !validateColumn(data))
+                return false;
         }
     }
     return true;
