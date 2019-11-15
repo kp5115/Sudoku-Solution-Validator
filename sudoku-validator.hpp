@@ -9,5 +9,6 @@
 #define sudoku_validator_hpp
 
 bool validateSudokuSolution(int (*sudoku)[9]);
+bool validateSudokuSolutionThreaded(int (*sudoku)[9]);
 
 #endif /* sudoku_validator_hpp */

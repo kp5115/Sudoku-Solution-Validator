@@ -6,8 +6,10 @@
 //
 
 #include <iostream>
+#include <chrono>
 #include "sudoku-validator.hpp"
 using namespace std;
+using namespace std::chrono;
 
 int main() {
     int a[9][9] = {
@@ -22,9 +24,28 @@ int main() {
         {2, 8, 5, 4, 7, 3, 9, 1, 6}
     };
     int (*sp)[9] = a;
-    if (validateSudokuSolution(sp))
+    
+    cout << "----------Single Thread Approach----------\n\n";
+    high_resolution_clock::time_point start_time = high_resolution_clock::now();
+    bool validFlag = validateSudokuSolution(sp);
+    high_resolution_clock::time_point end_time = high_resolution_clock::now();
+    microseconds duration = duration_cast<microseconds>(end_time - start_time);
+    if (validFlag)
         cout << "Valid Sudoku Solution\n";
     else
         cout << "Invalid Sudoku Solution\n";
+    cout << "Time Taken: " << duration.count() << " μs\n\n";
+    
+    cout << "----------Multi Thread Approach----------\n\n";
+    start_time = high_resolution_clock::now();
+    bool validFlagThreaded = validateSudokuSolutionThreaded(sp);
+    end_time = high_resolution_clock::now();
+    duration = duration_cast<microseconds>(end_time - start_time);
+    if (validFlagThreaded)
+        cout << "Valid Sudoku Solution\n";
+    else
+        cout << "Invalid Sudoku Solution\n";
+    cout << "Time Taken: " << duration.count() << " μs\n\n";
+    
     return 0;
 }
